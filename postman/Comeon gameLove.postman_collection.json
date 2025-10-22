@@ -1,0 +1,597 @@
+{
+	"info": {
+		"_postman_id": "51565b16-74f3-43a5-af13-0680516bf8b6",
+		"name": "Comeon gameLove",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5048266"
+	},
+	"item": [
+		{
+			"name": "game - register",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"idAsset\", jsonData.id);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "request-id",
+						"value": "55289227-f8ff-4201-ab61-16f877bf32ee",
+						"type": "text"
+					},
+					{
+						"key": "request-date",
+						"value": "2022-09-29T11:28:37.933-0500",
+						"type": "text"
+					},
+					{
+						"key": "app-code",
+						"value": "YP",
+						"type": "text"
+					},
+					{
+						"key": "caller-name",
+						"value": "postman",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{onlockToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\":\"counter\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/game",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "game - like",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"idAsset\", jsonData.id);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "request-id",
+						"value": "55289227-f8ff-4201-ab61-16f877bf32ee",
+						"type": "text"
+					},
+					{
+						"key": "request-date",
+						"value": "2022-09-29T11:28:37.933-0500",
+						"type": "text"
+					},
+					{
+						"key": "app-code",
+						"value": "YP",
+						"type": "text"
+					},
+					{
+						"key": "caller-name",
+						"value": "postman",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{onlockToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"player\":4,\r\n  \"game\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/game/like",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game",
+						"like"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "game - dislike",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"idAsset\", jsonData.id);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "request-id",
+						"value": "55289227-f8ff-4201-ab61-16f877bf32ee",
+						"type": "text"
+					},
+					{
+						"key": "request-date",
+						"value": "2022-09-29T11:28:37.933-0500",
+						"type": "text"
+					},
+					{
+						"key": "app-code",
+						"value": "YP",
+						"type": "text"
+					},
+					{
+						"key": "caller-name",
+						"value": "postman",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{onlockToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"game\":2,\r\n  \"player\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/game/dislike",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game",
+						"dislike"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "game - favorites top",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"idAsset\", jsonData.id);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "request-id",
+						"value": "55289227-f8ff-4201-ab61-16f877bf32ee",
+						"type": "text"
+					},
+					{
+						"key": "request-date",
+						"value": "2022-09-29T11:28:37.933-0500",
+						"type": "text"
+					},
+					{
+						"key": "app-code",
+						"value": "YP",
+						"type": "text"
+					},
+					{
+						"key": "caller-name",
+						"value": "postman",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{onlockToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\":\"asset\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/game/favorites/top?limit=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game",
+						"favorites",
+						"top"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "game - favorites Player",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"idAsset\", jsonData.id);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "request-id",
+						"value": "55289227-f8ff-4201-ab61-16f877bf32ee",
+						"type": "text"
+					},
+					{
+						"key": "request-date",
+						"value": "2022-09-29T11:28:37.933-0500",
+						"type": "text"
+					},
+					{
+						"key": "app-code",
+						"value": "YP",
+						"type": "text"
+					},
+					{
+						"key": "caller-name",
+						"value": "postman",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{onlockToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\":\"asset\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/game/favorites/player/1?limit=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game",
+						"favorites",
+						"player",
+						"1"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "game - fetch",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"idAsset\", jsonData.id);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "request-id",
+						"value": "55289227-f8ff-4201-ab61-16f877bf32ee",
+						"type": "text"
+					},
+					{
+						"key": "request-date",
+						"value": "2022-09-29T11:28:37.933-0500",
+						"type": "text"
+					},
+					{
+						"key": "app-code",
+						"value": "YP",
+						"type": "text"
+					},
+					{
+						"key": "caller-name",
+						"value": "postman",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{onlockToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\":\"asset\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/game/fetch?page=0&limit=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"game",
+						"fetch"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "player - register",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"idAsset\", jsonData.id);"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\":\"contreras\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/player",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"player"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

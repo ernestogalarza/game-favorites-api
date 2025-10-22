@@ -1,0 +1,400 @@
+openapi: 3.0.3
+info:
+  title: game-api-v1
+  version: '1.0'
+  description: API to manage games
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  /player:
+    post:
+      tags:
+        - Player
+      summary: Register new player
+      operationId: doPlayerRegisterPost
+      description: save new player at db
+      responses:
+        '200':
+          description: execution successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralResponse'
+        '400':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '401':
+          description: Unauthorization request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '404':
+          description: object not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '500':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerRequest'
+  /game:
+    post:
+      tags:
+        - Game
+      summary: register new game
+      operationId: doGameRegisterPost
+      description: save new game at db
+      responses:
+        '200':
+          description: execution successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralResponse'
+        '400':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '401':
+          description: Unauthorization request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '404':
+          description: object not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '500':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GameRequest'
+  /game/like:
+    post:
+      tags:
+        - Game
+      summary: set up as favorite a game
+      operationId: doGameLikePost
+      description: save new player at db
+      responses:
+        '200':
+          description: execution successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralResponse'
+        '400':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '401':
+          description: Unauthorization request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '404':
+          description: object not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '500':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GameFavoriteRequest'
+  /game/dislike:
+    post:
+      tags:
+        - Game
+      x-stoplight:
+        id: ea8e29c8bd7b6
+      summary: dislike a game
+      operationId: doGameDislikeDelete
+      description: save new player at db
+      responses:
+        '200':
+          description: execution successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralResponse'
+        '400':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '401':
+          description: Unauthorization request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '404':
+          description: object not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '500':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GameFavoriteRequest'
+  /game/fetch:
+    get:
+      tags:
+        - Game
+      summary: get a list of games
+      operationId: doGameFetchGet
+      description: get a list of favorites games
+      parameters:
+        - name: page
+          in: query
+          description: value to management pagination
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          description: Maximum number of games to return
+          required: false
+          schema:
+            type: integer
+            default: 5
+      responses:
+        '200':
+          description: execution successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameFavoritesPlayerResponse'
+        '400':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '401':
+          description: Unauthorization request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '404':
+          description: object not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '500':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+  '/game/favorites/player/{idplayer}':
+    get:
+      tags:
+        - Game
+      summary: get a list of favorites games
+      operationId: doGameFavoritesPlayerGet
+      description: get a list of favorites games
+      parameters:
+        - name: idplayer
+          in: path
+          required: true
+          description: Player identifier
+          schema:
+            type: integer
+            example: 42
+      responses:
+        '200':
+          description: execution successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameFavoritesPlayerResponse'
+        '400':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '401':
+          description: Unauthorization request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '404':
+          description: object not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '500':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+  /game/favorites/top:
+    get:
+      tags:
+        - Game
+      summary: get a list of favorites games
+      operationId: doGameFavoritesTopGet
+      description: get a list of favorites games
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of favorite games to return
+          required: false
+          schema:
+            type: integer
+            default: 5
+      responses:
+        '200':
+          description: execution successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameFavoritesResponse'
+        '400':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '401':
+          description: Unauthorization request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '404':
+          description: object not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+        '500':
+          description: values requested are incorrect
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelException'
+components:
+  schemas:
+    GameFavoriteRequest:
+      title: GameFavoriteRequest
+      type: object
+      description: ''
+      properties:
+        game:
+          type: integer
+        player:
+          type: integer
+    PlayerRequest:
+      title: PlayerRequest
+      type: object
+      description: ''
+      properties:
+        username:
+          type: string
+    GameRequest:
+      title: PlayerRequest
+      type: object
+      description: ''
+      properties:
+        username:
+          type: string
+    GameFavoritesPlayerResponse:
+      title: GameFavoritesPlayerResponse
+      type: array
+      items:
+        $ref: '#/components/schemas/GameResponse'
+    GameResponse:
+      title: GameResponse
+      type: object
+      description: ''
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    GeneralResponse:
+      title: GeneralResponse
+      type: object
+      description: ''
+      properties:
+        code:
+          type: string
+    GameFavoritesResponse:
+      title: GameFavoritesResponse
+      type: array
+      items:
+        $ref: '#/components/schemas/GameFavoriteResponse'
+    GameFavoriteResponse:
+      title: GameFavoriteResponse
+      type: object
+      description: ''
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        totalLikes:
+          type: integer
+    ModelException:
+      title: ModelException
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
