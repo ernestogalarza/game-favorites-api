@@ -40,7 +40,7 @@ dockerfile                   #dockerfile to run on docker
 ## 🚀 How to Run the App (Local)
 ### 1️⃣ Clone repo
 ```bash
-git clone https://github.com/ernestogalarza/game-api.git
+git clone https://github.com/ernestogalarza/game-love-api.git
 cd game-api 
 ```
 
