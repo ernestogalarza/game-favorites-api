@@ -72,6 +72,5 @@ docker run -p 8080:8080 game-api
 | GET    | /game/favorites/player/{id} | Get favorite games of a player |
 | GET    | /game/favorites/top         | Get top favorite games         |
 
-###  📜 License
-
-This project is released under the MIT License.
+###  ⚙ Notes
+Likewise, in the project you’ll find a Postman collection to run tests on the endpoints.
