@@ -1,7 +1,14 @@
 package com.comeon.ernesto.game.model.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+/**
+ * DTO representing a favorite game of a player.
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

@@ -1,25 +1,40 @@
 package com.comeon.ernesto.game.controller;
 
-import com.comeon.ernesto.game.api.GameApi;
-import com.comeon.ernesto.game.mapper.ServiceMapper;
-import com.comeon.ernesto.game.model.api.*;
-import com.comeon.ernesto.game.service.GameService;
-import com.comeon.ernesto.game.util.HelperUtil;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.comeon.ernesto.game.api.GameApi;
+import com.comeon.ernesto.game.mapper.ServiceMapper;
+import com.comeon.ernesto.game.model.api.GameFavoriteRequest;
+import com.comeon.ernesto.game.model.api.GameFavoriteResponse;
+import com.comeon.ernesto.game.model.api.GameRequest;
+import com.comeon.ernesto.game.model.api.GameResponse;
+import com.comeon.ernesto.game.model.api.GeneralResponse;
+import com.comeon.ernesto.game.service.GameService;
+import com.comeon.ernesto.game.util.HelperUtil;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * REST controller for managing games.
+ */
 @RestController
 @Slf4j
 public class GameController implements GameApi {
 
+    /**
+     * Service for game operations.
+     */
     @Autowired
     GameService gameService;
 
+    /**
+     * Mapper to convert between API models and DTOs.
+     */
     @Autowired
     ServiceMapper serviceMapper;
 
@@ -48,7 +63,7 @@ public class GameController implements GameApi {
     @Override
     public ResponseEntity<List<GameResponse>> doGameFetchGet(Integer page, Integer limit) {
         log.info("START doGameFetchGet");
-        List<GameResponse> list =  gameService.fetch(page,limit)
+        List<GameResponse> list =  gameService.fetch(page, limit)
                 .stream().map(serviceMapper::toGameResponse).collect(Collectors.toList());
         return ResponseEntity.ok(list);
     }

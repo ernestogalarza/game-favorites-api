@@ -218,6 +218,27 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.3.1</version>
+				<executions>
+					<execution>
+						<id>validate</id>
+						<phase>validate</phase> <!-- Runs before compile -->
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<configLocation>checkstyle.xml</configLocation> <!-- Path to your rules -->
+							<encoding>UTF-8</encoding>
+							<consoleOutput>true</consoleOutput>
+							<failOnViolation>true</failOnViolation> <!-- 🚫 Stops the build -->
+							<linkXRef>false</linkXRef>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

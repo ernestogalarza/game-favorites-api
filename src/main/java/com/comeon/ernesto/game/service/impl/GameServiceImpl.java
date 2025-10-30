@@ -1,5 +1,12 @@
 package com.comeon.ernesto.game.service.impl;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+
 import com.comeon.ernesto.game.exception.ApiException;
 import com.comeon.ernesto.game.exception.ErrorCode;
 import com.comeon.ernesto.game.mapper.ServiceMapper;
@@ -14,14 +21,9 @@ import com.comeon.ernesto.game.repository.GameLoveRepository;
 import com.comeon.ernesto.game.repository.GameRepository;
 import com.comeon.ernesto.game.repository.PlayerRepository;
 import com.comeon.ernesto.game.service.GameService;
-import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import jakarta.transaction.Transactional;
+
 
 @Service
 public class GameServiceImpl implements GameService {
@@ -70,7 +72,7 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public List<GameDto> getFavoritesPlayer(int idPlayer){
+    public List<GameDto> getFavoritesPlayer(int idPlayer) {
         return  gameLoveRepository.findGamesLovedByPlayer(
                 Long.valueOf(idPlayer));
     }

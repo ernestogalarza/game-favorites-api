@@ -1,16 +1,16 @@
 package com.comeon.ernesto.game.util;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import com.comeon.ernesto.game.model.api.GeneralResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 public class HelperUtil {
 
-    public static GeneralResponse buildGeneralResponse(){
+    public static GeneralResponse buildGeneralResponse() {
         return new GeneralResponse().code("200");
     }
 
